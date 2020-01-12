@@ -42,10 +42,10 @@ class User < ApplicationRecord
   
   def unfavorite(item)
     fav_item = self.favorites.find_by(micropost_id: item.id)
-    favorites.destroy if fav_item
+    fav_item.destroy if fav_item
   end
   
   def favorite?(item)
-    self.favorites.include?(item)
+    self.likes.include?(item)
   end
 end
